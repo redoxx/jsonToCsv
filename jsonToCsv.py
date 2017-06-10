@@ -12,7 +12,7 @@ from path import path
 
 class JsonToCsv:
     def __init__(self):
-        self.path = 'data/SCORE3/'
+        self.path = 'data/'
         self.t_files = []
         
     def listFiles(self):
@@ -38,7 +38,7 @@ class JsonToCsv:
                 #save csv file
                 #"siren;localite;forme;rs;url;region;activite;code_activite;date;cp;proc;procedure"
                 nowdate = time.ctime()
-                score3_data = open('data/SCORE3/All_' + nowdate.replace(' ','_').replace(':','_') + '_SCORE3_leads.csv', 'w')
+                score3_data = open('data/All_' + nowdate.replace(' ','_').replace(':','_') + '.csv', 'w')
                 # create the csv writer object
                 csvwriter = csv.writer(score3_data,dialect="excel")
                 count = 0
@@ -54,7 +54,7 @@ class JsonToCsv:
                 score3_data.close()
                 print "\n Done"
             except IndexError:
-                print 'NO entreprises data'
+                print 'NO data file'
         
 if __name__ == '__main__': 
     trans = JsonToCsv()
